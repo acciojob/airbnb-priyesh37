@@ -23,8 +23,8 @@ import java.util.UUID;
 @RequestMapping("/hotel")
 public class HotelManagementController {
 
-        @Autowired
-        HotelManagementService hotelManagementService;
+//        @Autowired
+        HotelManagementService hotelManagementService = new HotelManagementService();
 
     @PostMapping("/add-hotel")
     public String addHotel(@RequestBody Hotel hotel){
@@ -45,7 +45,8 @@ public class HotelManagementController {
         //Assume that user will always be a valid user and return the aadharCardNo of the user
 
 //       return null;
-        return hotelManagementService.addUser(user);
+        Integer ans = hotelManagementService.addUser(user);
+        return ans;
     }
 
     @GetMapping("/get-hotel-with-most-facilities")
